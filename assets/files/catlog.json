@@ -26,39 +26,39 @@
         },
         {
             "id": 4,
-            "name": "iPhone12 Pro",
+            "name": "samsung fold 4",
             "desc": "Apple iphone 11 gen",
             "price": 89,
             "color": "#33505a",
-            "image": "https://www.techadvisor.com/wp-content/uploads/2022/06/redesigned_macbook_pro_2021_news.jpg?quality=50&strip=all"
+            "image": "https://cdn1.smartprix.com/rx-ibKJWHD9y-w1200-h1200/bKJWHD9y.jpg"
         },
         {
             "id": 4,
-            "name": "iPhone12 Pro",
+            "name": "vivo v20 pro",
             "desc": "Apple iphone 11 gen",
             "price": 999,
             "color": "#33505a",
-            "image": "https://www.techadvisor.com/wp-content/uploads/2022/06/redesigned_macbook_pro_2021_news.jpg?quality=50&strip=all"
+            "image": "https://www.dealntech.com/wp-content/uploads/2020/09/Vivo-V20-Pro.jpg"
         },
         {
             "id": 5,
-            "name": "iPhone12 Pro",
-            "desc": "Apple iphone 11 gen",
+            "name": "poco m4 pro",
+            "desc": "10 gen",
             "price": 999,
             "color": "#33505a",
-            "image": "https://www.techadvisor.com/wp-content/uploads/2022/06/redesigned_macbook_pro_2021_news.jpg?quality=50&strip=all"
+            "image": "https://unite4buy.ru/media/images/2021/11/09/poco-m4-pro-5g-1_ZnKywHz.jpg"
         },
         {
             "id": 6,
-            "name": "iPhone12 Pro",
-            "desc": "Apple iphone 11 gen",
+            "name": "Nokia",
+            "desc": "phone 1 gen",
             "price": 111,
             "color": "#33505a",
-            "image": "https://www.techadvisor.com/wp-content/uploads/2022/06/redesigned_macbook_pro_2021_news.jpg?quality=50&strip=all"
+            "image": "https://detec.in/cdn/shop/products/11_130a8dc2-1907-44d7-993f-1ed5bb30b823.jpg?v=1657780326"
         },
         {
             "id": 7,
-            "name": "iPhone12 Pro",
+            "name": "Macbook Pro",
             "desc": "Apple iphone 11 gen",
             "price": 499,
             "color": "#33505a",
