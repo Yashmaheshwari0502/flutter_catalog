@@ -3,9 +3,8 @@ import 'package:velocity_x/velocity_x.dart';
 
 import 'package:flutter_catlog/pages/home_page_detail.dart';
 
-import '../../model/cart.dart';
 import '../../model/catlog.dart';
-import '../theme.dart';
+import 'add_to_cart.dart';
 import 'catalog_image.dart';
 
 class CatalogList extends StatelessWidget {
@@ -72,40 +71,3 @@ class CatalogItem extends StatelessWidget {
   }
 }
 
-class AddToCart extends StatefulWidget {
-  final Item catalog;
-  const AddToCart({
-    Key? key,
-    required this.catalog,
-  }) : super(key: key);
-
-  @override
-  State<AddToCart> createState() => _AddToCartState();
-}
-
-class _AddToCartState extends State<AddToCart> {
-  bool isAdded = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        isAdded = isAdded.toggle();
-        setState(() {});
-        final _Catalog = CatalogModel();
-        final _cart = CartModel();
-        _cart.catalog = _Catalog;
-        _cart.add(widget.catalog);
-      },
-      child: isAdded ? Icon(Icons.done) : "Buy".text.make(),
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
-          context.primaryColor,
-        ),
-        shape: MaterialStateProperty.all(
-          StadiumBorder(),
-        ),
-      ),
-    );
-  }
-}
