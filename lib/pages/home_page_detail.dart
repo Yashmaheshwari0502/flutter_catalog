@@ -16,20 +16,26 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: context.canvasColor,
+        elevation: 0.0,
       ),
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
           children: [
-            "\$${catalog.price}".text.bold.xl4.make(),
+            "\$${catalog.price}"
+                .text
+                .color(MyTheme.darkBluishColor)
+                .bold
+                .xl4
+                .make(),
             ElevatedButton(
               onPressed: () {},
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all(MyTheme.darkBluishColor),
+                    MaterialStateProperty.all(context.primaryColor),
                 shape: MaterialStateProperty.all(
                   StadiumBorder(),
                 ),
@@ -44,7 +50,7 @@ class HomeDetailPage extends StatelessWidget {
         child: Column(
           children: [
             Hero(
-              tag: Key(catalog.id.toString()),
+              tag: Key(catalog.image),
               child: Image.network(catalog.image).h32(context),
             ),
             Expanded(
@@ -53,12 +59,12 @@ class HomeDetailPage extends StatelessWidget {
                 arcType: VxArcType.convey,
                 edge: VxEdge.top,
                 child: Container(
-                  color: Colors.white,
+                  color: context.cardColor,
                   width: context.screenWidth,
                   child: Column(
                     children: [
                       catalog.name.text.xl4
-                          .color(MyTheme.darkBluishColor)
+                          .color(context.theme.secondaryHeaderColor)
                           .bold
                           .make(),
                       catalog.desc.text
