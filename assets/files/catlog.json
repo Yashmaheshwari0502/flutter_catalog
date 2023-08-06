@@ -9,7 +9,7 @@
             "image": "https://rukminim1.flixcart.com/image/300/300/kg8avm80/mobile/g/z/c/apple-iphone-12-pro-max-dummyapplefsn-original-imafwgcyyemh9hbg.jpeg"
         },
         {
-            "id": 2,
+            "id": 1,
             "name": "Pixel 5",
             "desc": "Pixel 5 generation",
             "price": 990,
@@ -17,7 +17,7 @@
             "image": "https://5.imimg.com/data5/ANDROID/Default/2022/8/HQ/AO/WT/112130644/product-jpeg-500x500.jpg"
         },
         {
-            "id": 3,
+            "id": 2,
             "name": "iPhone11 Pro",
             "desc": "Apple iphone 11 gen",
             "price": 199,
@@ -25,7 +25,7 @@
             "image": "https://media.croma.com/image/upload/v1662418916/Croma%20Assets/Communication/Mobiles/Images/230107_2_l6k7sl.png"
         },
         {
-            "id": 4,
+            "id": 3,
             "name": "samsung fold 4",
             "desc": "Apple iphone 11 gen",
             "price": 89,
