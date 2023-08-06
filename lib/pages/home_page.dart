@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_catlog/model/catlog.dart';
 
-
 import '../utils/routes.dart';
 import '../widget/home widget/catagory_header.dart';
 import '../widget/home widget/catalog_list.dart';
@@ -44,7 +43,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: context.canvasColor,
       floatingActionButton: FloatingActionButton(
         backgroundColor: context.primaryColor,
-        onPressed: () => Navigator.pushNamed(context, MyRoutess.cartpage),
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
         child: Icon(
           CupertinoIcons.cart,
           color: Colors.white,

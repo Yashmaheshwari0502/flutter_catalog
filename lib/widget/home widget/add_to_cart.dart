@@ -6,33 +6,31 @@ import '../../core/store.dart';
 import '../../model/cart.dart';
 import '../../model/catlog.dart';
 
+
 class AddToCart extends StatelessWidget {
   final Item catalog;
   AddToCart({
-    Key? key,
+    super.key,
     required this.catalog,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    VxState.listen(context, to: [AddMutation]);
+    VxState.watch(context, on: [AddMutation, RemoveMutation]);
     final CartModel _cart = (VxState.store as MyStore).cart;
-    bool isInCart = _cart.items.contains(catalog) ?? false;
+    bool isInCart = _cart.items.contains(catalog);
+
     return ElevatedButton(
-      onPressed: () {
-        if (!isInCart) {
-          AddMutation(catalog);
-        }
-      },
-      child: isInCart ? Icon(Icons.done) : Icon(CupertinoIcons.cart_badge_plus),
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
-          context.primaryColor,
+        onPressed: () {
+          if (!isInCart) {
+            AddMutation(catalog);
+          }
+        },
+        style: ButtonStyle(
+          backgroundColor:
+              MaterialStateProperty.all(context.theme.primaryColor),
         ),
-        shape: MaterialStateProperty.all(
-          StadiumBorder(),
-        ),
-      ),
-    );
+        child:
+            isInCart ? Icon(Icons.done) : Icon(CupertinoIcons.cart_badge_plus));
   }
 }

@@ -1,51 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
 
-import 'package:flutter_catlog/pages/home_page_detail.dart';
-
+import "package:velocity_x/velocity_x.dart";
 import '../../model/catlog.dart';
+import '../../pages/home_page_detail.dart';
 import 'add_to_cart.dart';
 import 'catalog_image.dart';
 
 class CatalogList extends StatelessWidget {
-  const CatalogList({super.key});
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        shrinkWrap: true,
-        itemCount: CatalogModel.items.length,
-        itemBuilder: (context, index) {
-          final catalog = CatalogModel.items[index];
-          return InkWell(
-              onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HomeDetailPage(catalog: catalog),
+      shrinkWrap: true,
+      itemCount: CatalogModel.items.length,
+      itemBuilder: (context, index) {
+        final catalog = CatalogModel.items[index];
+        return InkWell(
+            onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomeDetailPage(
+                      catalog: catalog,
                     ),
                   ),
-              child: CatalogItem(catalog: catalog));
-        });
+                ),
+            child: CatalogItem(catalog: catalog));
+      },
+    );
   }
 }
 
 class CatalogItem extends StatelessWidget {
   final Item catalog;
-  const CatalogItem({
-    Key? key,
-    required this.catalog,
-  }) : super(key: key);
+
+  const CatalogItem({super.key, required this.catalog})
+      : assert(catalog != null);
+
   @override
   Widget build(BuildContext context) {
     return VxBox(
-        child: Row(
-      children: [
-        Hero(
-          tag: Key(catalog.image),
-          child: CatalogImage(image: catalog.image),
-        ),
-        Expanded(
-          child: Column(
+      child: Row(
+        children: [
+          Hero(
+            tag: Key(catalog.image),
+            child: CatalogImage(
+              image: catalog.image,
+            ),
+          ),
+          Expanded(
+              child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -53,21 +55,22 @@ class CatalogItem extends StatelessWidget {
                   .color(context.theme.secondaryHeaderColor)
                   .bold
                   .make(),
-              catalog.desc.text.textStyle(context.captionStyle!).make(),
+              catalog.desc.text.sm.textStyle(context.captionStyle).make(),
               10.heightBox,
               ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,
                 buttonPadding: EdgeInsets.zero,
                 children: [
                   "\$${catalog.price}".text.bold.xl.make(),
-                  AddToCart(catalog: catalog)
+                  AddToCart(
+                    catalog: catalog,
+                  )
                 ],
               ).pOnly(right: 8.0)
             ],
-          ),
-        )
-      ],
-    )).color(context.cardColor).roundedLg.square(150).make().py16();
+          ))
+        ],
+      ),
+    ).color(context.cardColor).roundedSM.square(100).make().py12();
   }
 }
-

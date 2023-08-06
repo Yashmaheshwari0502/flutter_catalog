@@ -1,80 +1,78 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_catlog/widget/home%20widget/add_to_cart.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import 'package:flutter_catlog/model/catlog.dart';
-
-import '../widget/theme.dart';
+import '../model/catlog.dart';
+import '../widget/home widget/add_to_cart.dart';
 
 class HomeDetailPage extends StatelessWidget {
   final Item catalog;
-  const HomeDetailPage({
-    Key? key,
-    required this.catalog,
-  }) : super(key: key);
+
+  const HomeDetailPage({super.key, required this.catalog});
 
   @override
   Widget build(BuildContext context) {
+    if (catalog.id == null) {
+      // Return a widget indicating that the data is not available
+      return const Scaffold(
+        body: Center(
+          child: Text('Item data not available.'),
+        ),
+      );
+    }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: context.canvasColor,
-        elevation: 0.0,
+        backgroundColor: Colors.transparent,
       ),
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: context.cardColor,
+        color: context.theme.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
           children: [
-            "\$${catalog.price}"
-                .text
-                .color(MyTheme.darkBluishColor)
-                .bold
-                .xl4
-                .make(),
-           AddToCart(catalog: catalog,).wh(100, 50),
+            "\$${catalog.price}".text.bold.xl4.red700.make(),
+            AddToCart(
+              catalog: catalog,
+            ).wh(120, 50)
           ],
         ).p32(),
       ),
       body: SafeArea(
         bottom: false,
-        child: Column(
-          children: [
-            Hero(
-              tag: Key(catalog.image),
-              child: Image.network(catalog.image).h32(context),
-            ),
-            Expanded(
-              child: VxArc(
+        child: Column(children: [
+          Hero(
+            tag: Key(catalog.image),
+            child: Image.network(catalog.image),
+          ).h32(context).p16(),
+          Expanded(
+            child: VxArc(
                 height: 30.0,
                 arcType: VxArcType.convey,
                 edge: VxEdge.top,
                 child: Container(
-                  color: context.cardColor,
                   width: context.screenWidth,
+                  color: context.cardColor,
                   child: Column(
                     children: [
                       catalog.name.text.xl4
                           .color(context.theme.secondaryHeaderColor)
                           .bold
                           .make(),
-                      catalog.desc.text
-                          .textStyle(context.captionStyle!)
-                          .xl
+                      catalog.desc.text.xl
+                          .textStyle(context.captionStyle)
                           .make(),
-                      10.heightBox,
-                      "Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
+                      " ever since the asdasdadasdasdkjasdkl;jalskdjlk  1500s, when an unknown printer took a galley of of Lorem Ipsum."
                           .text
-                          .textStyle(context.captionStyle!)
+                          .align(TextAlign.center)
+                          .textStyle(context.captionStyle)
                           .make()
-                          .p16(),
+                          .px(20)
+                          .py(20)
                     ],
-                  ).p64(),
-                ),
-              ),
-            )
-          ],
-        ),
+                  ).py(48),
+                )),
+          )
+        ]),
       ),
     );
   }

@@ -1,6 +1,6 @@
-class MyRoutess {
-  static String homepage = '/home';
-  static String loginpage = '/login';
-  static String homedetailpage = '/detail';
-  static String cartpage = '/cart';
+class MyRoutes {
+  static String loginRoute = "/login";
+  static String homeRoute = "/home";
+  static String homeDetailsRoute = "/details";
+  static String cartRoute = "/cart";
 }
